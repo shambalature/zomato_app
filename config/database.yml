@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: postgres
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  host: <%= ENV.fetch("DB_HOST", "127.0.0.1") %>
+  database: zomato_app
+  #database: crm4beauty_development_migrating
+
+test: &test
+  <<: *default
+  host: <%= ENV.fetch("DB_HOST", "127.0.0.1") %>
+  database: zomato_app_test
+
+production:
+  <<: *default
+  database: zomato_app_production
