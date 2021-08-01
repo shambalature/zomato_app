@@ -29,8 +29,7 @@ class RestaurantsController < ApplicationController
   def update
     respond_to do |format|
       if @restaurant.update(restaurant_params)
-
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
+        format.html { redirect_to restaurants_path, notice: 'Restaurant was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -40,7 +39,7 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant.destroy
     respond_to do |format|
-      format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
+      format.html { redirect_to restaurants_path, notice: 'Restaurant was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -52,6 +51,6 @@ class RestaurantsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def restaurant_params
-    params.permit(:name, :description)
+    params.require(:restaurant).permit(:name, :description, :avatar)
   end
 end

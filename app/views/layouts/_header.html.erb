@@ -9,6 +9,11 @@
     </form>
     <ul class="navbar-nav mr-2 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
       <% if user_signed_in? %>
+        <% if current_user.role == "admin" %>
+          <li class="nav-item">
+            <%= link_to 'Create Restaurant', new_restaurant_path, :class => 'nav-link active' %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link active' %>
         </li>

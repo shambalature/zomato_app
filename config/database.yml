@@ -8,8 +8,7 @@ default: &default
 development:
   <<: *default
   host: <%= ENV.fetch("DB_HOST", "127.0.0.1") %>
-  database: zomato_app
-  #database: crm4beauty_development_migrating
+  database: zomato_application
 
 test: &test
   <<: *default

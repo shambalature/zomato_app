@@ -12,7 +12,11 @@
   <body>
     <%= render "/layouts/header" %>
     <section class="section gray-bg" id="contactus">
-      <%= yield %>
+      <div class="container text-center">
+        <div class="row">
+          <%= yield %>
+        </div>
+      </div>
     </section>
     <%= render "/layouts/footer" %>
   </body>

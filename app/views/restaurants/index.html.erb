@@ -1,1 +1,13 @@
-<h1>Hello World</h1>
+<h1>Best Foods</h1>
+<div class="container-fluid">
+  <div class="row">
+  <% @restaurants.each do |restaurant| %>
+    <div class="col-lg">
+      <%= link_to restaurant_path(restaurant.id) do %>
+        <div><%= image_tag restaurant.avatar.url(:medium) %></div>
+        <p><%= restaurant.name %> | <%= link_to 'Edit', edit_restaurant_path(restaurant.id) if current_user && current_user.role == "admin" %></p>
+      <% end %>
+    </div>
+    <% end %>
+  </div>  
+</div>
