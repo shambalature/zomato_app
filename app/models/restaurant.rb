@@ -6,4 +6,6 @@ class Restaurant < ApplicationRecord
   has_many :users, through: :restaurant_users
   has_many :orders
   has_many :users, through: :orders
+  has_many :images, as: :imageable, inverse_of: :imageable
+  has_many :items
 end

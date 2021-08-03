@@ -16,6 +16,7 @@ class RestaurantsController < ApplicationController
 		@restaurant = Restaurant.new(restaurant_params)
 		respond_to do |format|
       if @restaurant.save
+        @restaurant.restaurant_users.create(user_id: current_user.id)
         format.html { redirect_to restaurants_path, notice: 'Restaurant was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
